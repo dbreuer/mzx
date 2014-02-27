@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Mz/X - The Game</title>
+    <meta name="viewport" content="width=device-width,user-scalable=no">
+
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,300&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <!-- Loading Bootstrap -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="bootstrap/css/bootstrap-theme.css" rel="stylesheet">
+    <link rel="shortcut icon" href="images/favicon.ico">
+
+    
+  </head>
+  <body>
+        <!-- Load the Facebook JavaScript SDK -->                                                                                                                               
+     <!--
+     <div id="fb-root"></div>
+     <script src='http://connect.facebook.net/en_US/all.js'></script>
+     -->
+    <section id="homeView" class=" text-center" >
+        <div class="navbar navbar-fixed-top">
+            <div class="container">
+              <div class="">
+                  <ul class="nav navbar-nav" id="navigation">
+                      <li><span class="GameTitle"></span></li>
+                  </ul>
+              </div><!--/.navbar-collapse -->
+            </div>
+          </div>
+        <div id="HomeViewControllers" class="btn-group-vertical">
+            
+        </div>
+    </section>
+    <section id="main-view"  class="">
+            <div id="main-id"  class="view">
+                <!-- game canvas -->
+            </div>
+
+
+            <div class="debug hidden">
+                <span class="badage">DEBUG</span>
+                <div id="tagsinput_tagsinput" class="tagsinput " style="height: 100%;">
+
+                </div>
+            </div>
+    </section>
+    <section id="settings-view"  class="">
+            <div class="settings-input view container">
+                            <div class="unit">
+                                    <h3>Top list</h3>
+                                    <table class="table table-bordered" id="scoreTable">
+                                            <tbody>
+                                                    <tr>
+                                                            <th width="20"></th>
+                                                            <th>Name</th>
+                                                            <th width="100">Point</th>
+                                                            <th width="20">Time</th>
+                                                    </tr>
+                                            </tbody>
+                                    </table>
+                            </div>
+            </div>
+    </section>
+ 
+      <!-- Modal -->
+  <div class="modal fade" id="modalDiv" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body panel-body text-center">
+            <div id="modalBodyContent"></div> 
+          <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
+    <!-- Load JS here for greater good =============================-->
+    
+    <script src="js/jquery.js"></script>
+    <script src="js/functions.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="js/game.js"></script>
+    <script>
+            Game.init();
+    </script>
+  </body>
+</html>
