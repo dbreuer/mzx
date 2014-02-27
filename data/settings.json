@@ -1,0 +1,105 @@
+{
+    "GameTitle": "MZ/X Game",
+    "author": "David Breuer",
+    "version": " version: 0.0.1",
+    "cButton": [
+        {
+        "id": "goPlay",
+        "text": "Time Trial",
+        "view": "homeViewControllers", 
+        "className": "btn btn-info btn-large",
+        "before": true,
+        "event": "Game.goView",
+        "top" : "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+        },
+        {
+        "id": "goPlay",
+        "text": "Quick",
+        "view": "homeViewControllers", 
+        "className": "btn btn-info btn-large",
+        "before": true,
+        "event": "Game.goView",
+        "top" : "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+        },
+        {
+        "id": "getInfo",
+        "text": "Help",
+        "view": "homeViewControllers", 
+        "className": "btn btn-info btn-large",
+        "before": false,
+        "event": "Game.getInfo",
+        "top" : "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+        },
+        {
+        "id": "goHome",
+        "text": "Home",
+        "view": "navigation", 
+        "className": "btn btn-small",
+        "before": "",
+        "event": "Game.goView",
+        "top" : "0px",
+        "right": "",
+        "bottom": "",
+        "left": "0px"
+        },
+        {
+        "id": "goSettings",
+        "text": "Settings",
+        "view": "navigation", 
+        "className": "btn btn-small ",
+        "before": "",
+        "event": "Game.goView",
+        "top" : "0px",
+        "right": "0px",
+        "bottom": "",
+        "left": ""
+        },
+        {
+        "id": "goPlay",
+        "text": "Game",
+        "view": "navigation", 
+        "className": "btn btn-small",
+        "before": "",
+        "event": "Game.goView",
+        "top" : "0px",
+        "right": "81px",
+        "bottom": "",
+        "left": ""
+        }
+    ],
+    "cText": [
+        {
+        "id": "score",
+        "text": "Points:",
+        "view": "container", 
+        "className": "gameScore",
+        "before": "",
+        "tagName": "h2",
+        "top" : "",
+        "right": "",
+        "bottom": "0px",
+        "left": "10px"
+        },
+        {
+        "id": "timer",
+        "text": "mp",
+        "view": "container", 
+        "className": "gameTime",
+        "before": "",
+        "tagName": "h2",
+        "top" : "",
+        "right": "10px",
+        "bottom": "0px",
+        "left": ""
+        }
+    ]
+}
