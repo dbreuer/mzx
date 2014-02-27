@@ -1,4 +1,7 @@
-//global variables
+/**
+ * 
+ * @global
+ */
 var parent = document.body;
 var container = document.getElementById('main-view');
 var homeView = document.getElementById('homeView');
@@ -10,8 +13,6 @@ var play_html5_audio = false;
 var winWIDTH = window.innerWidth;
 
 var winHEIGHT = window.innerHeight;
-/* demo height */
-//winHEIGHT = 640;
 var GameStartTime = new Date().getTime();
 var pointsData = new Array();
 var GameLevel = 0;
@@ -31,7 +32,7 @@ var GameSpeed = 100;
 var GameScore = 0;
 var GameCombo = 0;
 var mouseDown = false;
-//var sForm = document.getElementById('settingForm');
+
 var facebookLoginBox = true;
 var allBrickets = new Array();
 var selectedArray = new Array();
@@ -40,7 +41,7 @@ var snd = [];
 var sound ="";
 var playEffect = {};
 
-// legyen komment itt
+
 var donesData = [];
 var dones = [];
 
@@ -48,8 +49,18 @@ var colorCodes = ["#009B77", "#E2492F", "#D65076", "#EFC050", "#5B5EA6", "#4ECDC
 
 var sColor = "";
 var sID = "";
-
+/**
+ * The game constructor
+ * 
+ * @name Game
+ * @constructor
+ */
 var Game = {
+    /**
+     * Initialize
+     * @function
+     * @memberOf Game
+     */
     init: function() {
         $("body").css({width: (3*winWIDTH)+"px"});
         $("section").css({width: winWIDTH+"px", height: winHEIGHT+"px"});
@@ -57,14 +68,22 @@ var Game = {
         $("#HomeViewControllers").css({marginTop: (winHEIGHT/3)+"px"});
         
         Game.getJSONData();
-        //debug
-        //var a = {target: { id: "goPlay"}};
-        //Game.goView(a);
+        
     },
+    /**
+     * Rebuild game
+     * @function
+     * @memberOf Game
+     */
     resetBuild: function() {
         Game.getJSONData();
         Game.build();
     },
+    /**
+     * Get settings data from JSON
+     * @function
+     * @memberOf Game
+     */
     getJSONData: function() {
         $.getJSON('data/settings.json', function(data) {
             $.each(data, function(key, val) {
@@ -94,8 +113,15 @@ var Game = {
             
           });
     },
+    /**
+     * Build Game field
+     * @property {array} pointsData Generated bricks data
+     * @function
+     * @name build
+     * @memberOf Game
+     */
     build: function() {
-           //Modulok
+         
            Game.getShake(); // shake (SPACE)
            Game.getSlide(); // slide it (A - bal, D - jobb)
            Game.loadFx(); // Effect loading
@@ -168,7 +194,12 @@ var Game = {
             Game.cBrick(pointsData[c]);
         }
 
-       
+       /**
+        * Mouse button up and touch end event
+        * @param {object} ev DOM element
+        * @function
+        * @memberOf build
+        */
         function handleEnd(ev){
             var back = document.getElementById("back");
             var b = back.getContext("2d");
@@ -226,7 +257,12 @@ var Game = {
             
             
         }
-        
+        /**
+        * Mouse button down and touch start event
+        * @param {object} ev DOM element
+        * @function
+        * @memberOf build
+        */
         function handleStart(ev){
                 selectedArray = [];
                 var back = document.getElementById("back");
@@ -253,7 +289,12 @@ var Game = {
 		   
 	}
         
-          
+        /**
+        * Mouse move and touch move
+        * @param {object} ev DOM element
+        * @function
+        * @memberOf build
+        */
         function handleMove(ev){
            ev.preventDefault();
             var isSelected = -1;
@@ -296,6 +337,11 @@ var Game = {
        });
       
     },
+    /**
+     * Create new brick in the empty place
+     * @function
+     * @memberOf Game
+     */
     generateNewBricks: function() {
          for (var a = 0; a < boxColumns; a++)
                 {
@@ -308,6 +354,11 @@ var Game = {
                     }
                 }
     },
+    /**
+     * Handle mobile shake or space button
+     * @function
+     * @memberOf Game
+     */
     getShake: function() {
          window.addEventListener("keyup", function(evt) {
              if (evt.keyCode === 32) {
@@ -348,6 +399,12 @@ var Game = {
         }, 150);
         return false;
     },
+    /**
+     * Mobile accelerometer event or A and D button event
+     * @function
+     * @memberOf Game
+     * @returns {Boolean}
+     */
     getSlide: function() {
         window.addEventListener("keyup", function(evt) {
              if (evt.keyCode === 65) {
@@ -394,6 +451,14 @@ var Game = {
         return false;
         
     },
+    /**
+     * Set game point by hidden bricks
+     * @param {string|number} db numbers of hided bricks
+     * @param {boolean} combo was more than 3
+     * @param {string|number} time unix timestamp
+     * @function
+     * @memberOf Game
+     */
     setPoint: function(db, combo, time) {
         if (!document.getElementById("scoreCount")) {
             var score = document.getElementById("score");
@@ -408,6 +473,12 @@ var Game = {
         
         
     },
+    /**
+     * Animate bricks
+     * @param {object} rect
+     * @param {string} startTime
+     * @param {string} way
+     */
     animate: function(rect, startTime, way) {
         var back = document.getElementById("back");
         var b = back.getContext("2d");
@@ -433,6 +504,9 @@ var Game = {
         // request new frame
         rect.id = rect.x/bW+"_"+rect.y/bH;
     },
+    /**
+     * 
+     */
     goAnimate: function() {
         
         for(var c = 0; c < selectedArray.length; c++) {
@@ -456,6 +530,10 @@ var Game = {
                 }
                 if(ret===true) Game.goAnimate();
     },
+    /**
+     * 
+     * @param {type} rect
+     */
     clearBrick: function(rect) {
         var back = document.getElementById("back");
         var b = back.getContext("2d");
@@ -469,6 +547,11 @@ var Game = {
             }
         }
     },
+    /**
+     * 
+     * @param {type} coords
+     * @returns {Boolean}
+     */
     getBrick: function(coords) {
         //console.log(coords);
         
@@ -483,6 +566,9 @@ var Game = {
         }
         return pos;
     },
+    /**
+     * 
+     */
     setRandomBricks: function() {
         var back = document.getElementById("back");
         var b = back.getContext("2d");
@@ -494,6 +580,10 @@ var Game = {
             Game.cBrick(pointsData[c]);
         }
     },
+    /**
+     * 
+     * @param {type} angle
+     */
     goSlide: function(angle){
         var ret = false;
         if (angle === "right") {
@@ -528,6 +618,11 @@ var Game = {
                 if (ret === true) Game.goSlide("left");
         }
     },
+    /**
+     * 
+     * @param {type} array
+     * @returns {array}
+     */
     shuffleArray: function(array) {
         for (var i = array.length - 1; i > 0; i--) {
             var j = Math.floor(Math.random() * (i + 1));
@@ -537,6 +632,10 @@ var Game = {
         }
         return array;
     },
+    /**
+     * 
+     * @param {type} ev
+     */
     nextLevel: function(ev) {
         log('');
         GameLevel++;
@@ -544,6 +643,9 @@ var Game = {
         console.log(GameLevel);
         $("#complete").addClass("hidden");
     },
+    /**
+     * 
+     */
     completeLevel: function() {
         emptyArray(donesData);
         
@@ -568,6 +670,10 @@ var Game = {
         document.getElementById("complete").appendChild(cl);
         $("#complete").removeClass("hidden");
     },
+    /**
+     * 
+     * @param {type} brickData
+     */
     cBrick: function(brickData){
         var back = document.getElementById("back").getContext("2d");
                 back.beginPath();
@@ -580,6 +686,10 @@ var Game = {
                 back.stroke();
                 back.closePath();
     },
+    /**
+     * 
+     * @param {type} brickData
+     */
     reDraw: function(brickData){
         var back = document.getElementById("back").getContext("2d");
                 back.beginPath();
@@ -592,6 +702,10 @@ var Game = {
                 back.stroke();
                 back.closePath();
     },
+    /**
+     * 
+     * @param {type} brickData
+     */
     touchDraw: function(brickData){
         var back = document.getElementById("back").getContext("2d");
                 back.beginPath();
@@ -604,6 +718,19 @@ var Game = {
                 back.stroke();
                 back.closePath();
     },
+    /**
+     * 
+     * @param {type} id
+     * @param {type} text
+     * @param {type} parent
+     * @param {type} className
+     * @param {type} before
+     * @param {type} eventName
+     * @param {type} top
+     * @param {type} right
+     * @param {type} bottom
+     * @param {type} left
+     */
     cButton: function(id, text, parent,className, before,eventName, top, right, bottom, left){
         var newButton = (parent.id === "navigation")?document.createElement('a'):document.createElement('button');
         
@@ -643,6 +770,19 @@ var Game = {
               
           }
     },
+    /**
+     * 
+     * @param {type} id
+     * @param {type} text
+     * @param {type} parent
+     * @param {type} className
+     * @param {type} before
+     * @param {type} tagName
+     * @param {type} top
+     * @param {type} right
+     * @param {type} bottom
+     * @param {type} left
+     */
     cText: function(id, text, parent,className, before,tagName, top, right, bottom, left){
         var newText = document.createElement('h2');
           newText.id = id;
@@ -663,10 +803,17 @@ var Game = {
               parent.appendChild(newText);
           }
     },
+    /**
+     * 
+     * @returns {object}
+     */
     html5_audio: function(){
 	var a = document.createElement('audio');
 	return !!(a.canPlayType && a.canPlayType('audio/mpeg;').replace(/no/, ''));
     },
+    /**
+     * 
+     */
     loadFx: function() {
         
         if(Game.html5_audio()) play_html5_audio = true;
@@ -683,6 +830,10 @@ var Game = {
 		$('body').append(sound);
 	}
     },
+    /**
+     * 
+     * @param {type} fx
+     */
     playFX: function(fx){
         var effects = {
             1: "fx/fx1.mp3", 
@@ -703,9 +854,17 @@ var Game = {
        
        
     },
+    /**
+     * 
+     * @param {type} e
+     */
     getInfo: function(e) {
         info(" [SPACE] button mixed the bricks<br/>the [A] button to  slide left and [D] button to slide right the bricks! <br/> The aim is  you have to frame one line the bricks which them disappear. More points is more brick in one line at time.<br/> Good game!'");
     },
+    /**
+     * 
+     * @param {type} e
+     */
     goView: function(e) {
         //console.log(e.target.innerHTML);
         
