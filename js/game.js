@@ -1,5 +1,10 @@
 /**
- * 
+ * MZ/X Game
+ * This is a full responsive online game
+ * Simple, easy and with flat design
+ * Used Bootstrap structure
+ * @see Bootstrap 3.x {@link http://getbootstrap.com/}
+ * @author David Breuer <dbreuer83@gmail.com>
  * @global
  */
 var parent = document.body;
@@ -704,7 +709,7 @@ var Game = {
     },
     /**
      * 
-     * @param {type} brickData
+     * @param {object} brickData
      */
     touchDraw: function(brickData){
         var back = document.getElementById("back").getContext("2d");

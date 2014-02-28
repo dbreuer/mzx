@@ -1,3 +1,49 @@
+/* css reset */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* Default style */
 body {
     background: #eee;
     font-family: "Roboto", sans-serif;
@@ -15,6 +61,8 @@ section {
     height: 0px;
     float: left;
 }
+
+/* Game views */
 section > div.view {
     margin: 55px auto 0px auto;
 }
@@ -28,6 +76,8 @@ section > div.view {
 .modal-content {
     border-radius: 0px;
 }
+
+/* Bootstrap custom style */
 .btn {
     font-weight: 100; 
     border-radius: 0px;
@@ -156,11 +206,6 @@ section > div.view {
   border-color: #c12e2a;
 }
 
-.btn-info {
-
-  
-}
-
 .btn-info:active,
 .btn-info.active {
   background-color: #31b0d5;
@@ -199,6 +244,8 @@ section > div.view {
           box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 1px 5px rgba(0, 0, 0, 0.075);
           min-height: 42px;
 }
+
+/* media queries */
 @media (min-width: 768px) {
     .navbar-nav>li>a {
         padding-top: 10px;
@@ -414,6 +461,7 @@ section > div.view {
   -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05), 0 1px 0 rgba(255, 255, 255, 0.1);
           box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05), 0 1px 0 rgba(255, 255, 255, 0.1);
 }
+
 /* Intro css3 animation */
 #intro {
     position: absolute;
