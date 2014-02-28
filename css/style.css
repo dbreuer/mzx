@@ -44,7 +44,7 @@ h1 small, .h1 small {
     -moz-box-sizing: border-box;
     box-sizing: border-box;
 }
-/* Block Game CSS */
+/* MZX Game CSS */
 .main { overflow: hidden; margin: 0px auto;}
 .mini-text {
 	font-size: 8px;
