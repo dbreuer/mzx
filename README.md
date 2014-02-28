@@ -22,7 +22,7 @@ This is work with all of your device, so you can play at work, at home or at par
 
 ## Links:
 
-+ [Bootflat Core page](http://getbootstrap.com/)
++ [Bootstrap 3.x Core page](http://getbootstrap.com/)
 + [GitHub pages](https://github.com/dbreuer83/mzx)
 
 ## Useful Links:
