@@ -35,6 +35,10 @@ h1 small, .h1 small {
     -ms-user-select: none;
     user-select: none;
 }
+.btn {
+    box-shadow: none;
+    background-image: none;
+}
 .btn-block {
     display: block;
     width: 100%;
@@ -601,3 +605,4 @@ table {
 .palette {
     width: 60%;
 }
+

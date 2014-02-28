@@ -31,6 +31,11 @@ section > div.view {
 .btn {
     font-weight: 100; 
     border-radius: 0px;
+    
+}
+.btn-group-vertical>.btn:first-child:not(:last-child),
+.btn-group-vertical>.btn:last-child:not(:first-child) {
+    border-radius: 0px;
 }
 .btn-default,
 .btn-primary,
@@ -38,9 +43,13 @@ section > div.view {
 .btn-info,
 .btn-warning,
 .btn-danger {
+    text-shadow: none;
+    box-shadow: none;
+    /*
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.2);
   -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 1px 1px rgba(0, 0, 0, 0.075);
           box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 1px 1px rgba(0, 0, 0, 0.075);
+          */
 }
 
 .btn-default:active,
@@ -55,8 +64,9 @@ section > div.view {
 .btn-info.active,
 .btn-warning.active,
 .btn-danger.active {
-  -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
-          box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    
+  -webkit-box-shadow: none;
+          box-shadow: none;
 }
 
 .btn:active,
@@ -147,13 +157,8 @@ section > div.view {
 }
 
 .btn-info {
-  background-image: -webkit-gradient(linear, left 0%, left 100%, from(#5bc0de), to(#31b0d5));
-  background-image: -webkit-linear-gradient(top, #5bc0de, 0%, #31b0d5, 100%);
-  background-image: -moz-linear-gradient(top, #5bc0de 0%, #31b0d5 100%);
-  background-image: linear-gradient(to bottom, #5bc0de 0%, #31b0d5 100%);
-  background-repeat: repeat-x;
-  border-color: #2aabd2;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff5bc0de', endColorstr='#ff31b0d5', GradientType=0);
+
+  
 }
 
 .btn-info:active,
@@ -408,4 +413,55 @@ section > div.view {
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffe8e8e8', endColorstr='#fff5f5f5', GradientType=0);
   -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05), 0 1px 0 rgba(255, 255, 255, 0.1);
           box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05), 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+/* Intro css3 animation */
+#intro {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background: rgba(91, 192, 222, 0.8);
+    z-index: 99999;
+    color: #fff;
+    text-align: center;
+    white-space:pre;
+    padding: 20px;
+    font: normal 700 50px verdana;
+    animation:introFrame 5s linear 1 forwards;
+    -webkit-animation:introFrame 5s linear 1 forwards; /* Safari and Chrome */;
+}
+
+#intro:before {
+    content: "Welcome \00000A in the \00000A MZ/X Game";
+    display: block;
+    clear: left;
+}
+
+#intro:after {
+    content: "Let's Play";
+    display: block;
+    clear: left;   
+}
+
+#intro img {
+    margin-left: -134px;
+}
+
+@keyframes introFrame
+{
+0% {opacity: 0; display: none;}
+10% {opacity:1;}
+70% {opacity:1;}
+80% {opacity:0; top: 0px;}
+100% {opacity: 0; top: 10000px;}
+}
+
+@-webkit-keyframes introFrame /* Safari and Chrome */
+{
+0% {opacity: 0; display: none;}
+10% {opacity:1;}
+70% {opacity:1;}
+80% {opacity:0; top: 0px;}
+100% {opacity: 0; top: 10000px;}
 }
