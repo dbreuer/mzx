@@ -186,6 +186,37 @@ var Game = {
                 document.getElementById("back").addEventListener("mousedown", handleStart, false);
                 document.getElementById("back").addEventListener("mouseup", handleEnd, false);
     
+                var lBtn = document.createElement("a");
+                lBtn.id = "leftRotate";
+                lBtn.className = "btn btn-info";
+                lBtn.style.position = "absolute";
+                lBtn.style.top = "60px";
+                lBtn.style.left = "10px";
+                lBtn.innerHTML = "<i class='fa fa-mail-reply'></i>";
+                document.body.appendChild(lBtn);
+                
+                var lBtn = document.createElement("a");
+                lBtn.id = "rightRotate";
+                lBtn.className = "btn btn-info";
+                lBtn.style.position = "absolute";
+                lBtn.style.top = "140px";
+                lBtn.style.left = "10px";
+                lBtn.innerHTML = "<i class='fa fa-mail-forward'></i>";
+                document.body.appendChild(lBtn);
+                
+                var lBtn = document.createElement("a");
+                lBtn.id = "shake";
+                lBtn.className = "btn btn-info";
+                lBtn.style.position = "absolute";
+                lBtn.style.top = "100px";
+                lBtn.style.left = "10px";
+                lBtn.innerHTML = "<i class='fa fa-flash'></i>";
+                document.body.appendChild(lBtn);
+                
+                document.getElementById("leftRotate").addEventListener("click", function(){Game.goSlide("left");}, false);
+                document.getElementById("rightRotate").addEventListener("click", function(){Game.goSlide("right");}, false);
+                document.getElementById("shake").addEventListener("click",  function() { info("Yepp bricks are mixed <i class='fa fa-smile-o'></i>"); Game.setRandomBricks();}, false);
+    
       for (var y = 0; y < boxRows; y++)
         {  
         for (var x = 0; x < boxColumns; x++)
@@ -371,6 +402,7 @@ var Game = {
                 Game.setRandomBricks();
               }
         }, false);
+            
         
         if (window.DeviceMotionEvent === undefined) {
             return false;
@@ -590,6 +622,9 @@ var Game = {
      * @param {type} angle
      */
     goSlide: function(angle){
+        
+        if (typeof angle === 'object' ) return false;
+        
         var ret = false;
         if (angle === "right") {
             for (var a = 0; a < boxColumns-1; a++)
