@@ -188,7 +188,7 @@ var Game = {
     
                 var lBtn = document.createElement("a");
                 lBtn.id = "leftRotate";
-                lBtn.className = "btn btn-info";
+                lBtn.className = "btn btn-info visible-md visible-lg";
                 lBtn.style.position = "absolute";
                 lBtn.style.top = "60px";
                 lBtn.style.left = "10px";
@@ -197,7 +197,7 @@ var Game = {
                 
                 var lBtn = document.createElement("a");
                 lBtn.id = "rightRotate";
-                lBtn.className = "btn btn-info";
+                lBtn.className = "btn btn-info visible-md visible-lg";
                 lBtn.style.position = "absolute";
                 lBtn.style.top = "140px";
                 lBtn.style.left = "10px";
@@ -206,7 +206,7 @@ var Game = {
                 
                 var lBtn = document.createElement("a");
                 lBtn.id = "shake";
-                lBtn.className = "btn btn-info";
+                lBtn.className = "btn btn-info visible-md visible-lg";
                 lBtn.style.position = "absolute";
                 lBtn.style.top = "100px";
                 lBtn.style.left = "10px";
